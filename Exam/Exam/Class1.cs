@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.IO;
 using System.Linq;
 using System.Text;
@@ -39,6 +40,11 @@ namespace Exam
                 }
                 sr.WriteLine(max);
             }
+            Debug.Listeners.Add(new TextWriterTraceListener(Console.Out));
+            Debug.Listeners.Add(new TextWriterTraceListener(File.CreateText("log.txt")));
+            Debug.AutoFlush = true;
+            Debug.WriteLine("Решение задачи записано в файл ");
+
         }
         struct Rbt
         {
@@ -195,5 +201,3 @@ namespace Exam
     }
 
 }
-
-}    
